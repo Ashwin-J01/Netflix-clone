@@ -1,0 +1,52 @@
+/* Header.css */
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 20%, transparent 100%);
+}
+
+.header img {
+  height: 50px;
+  width: auto;
+  margin-left: 30px;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+}
+
+.header-user h1 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header-buttons button {
+  background-color: #e50914; /* Netflix red */
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.header-buttons button:hover {
+  background-color: #f40612;
+}
