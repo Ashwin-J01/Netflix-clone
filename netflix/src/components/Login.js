@@ -1,22 +1,40 @@
 import React,{useState} from "react";
 import Header from "./Header";
 import './Login.css';
+import axios from "axios";
+import { API_END_POINT } from "../utils/constant";
 
 const Login = () => {
     const [isLogin,setIsLogin]=useState(true);
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const [fullname,setFullname]=useState("");
+    const [fullName,setFullName]=useState("");
     const logininHandler=()=>{
         setIsLogin(!isLogin);
     }
-    const getInputData=(e)=>{
+    const getInputData=async(e)=>{
          e.preventDefault();
-         console.log(fullname,email,password);
-         setFullname("");
+         if(isLogin){
+            const user={email,password};
+            try{
+                const res =await axios.post(`${API_END_POINT}/login`,user);
+                console.log(res);
+            }catch(error){
+                console.log(error);
+            }
+         }else{
+         const user={fullName,email,password};
+         try{
+                const res =await axios.post(`${API_END_POINT}/register`,user);
+                console.log(res);
+         }catch(error){
+            console.log(error);
+         }
+        }
+         setFullName("");
          setEmail("");
          setPassword("");
-            }
+        }
   return (
 	<div>
         <Header/>
@@ -26,7 +44,7 @@ const Login = () => {
             <h1>{isLogin? "Login" :"Sign up"}</h1>
             <div className="login-form-container">
                 {
-                    !isLogin && <input value={fullname} onChange={(e)=>setFullname(e.target.value)} type='text' placeholder="fullname" />
+                    !isLogin && <input value={fullName} onChange={(e)=>setFullName(e.target.value)} type='text' placeholder="fullname" />
                 }
                 <input value={email} onChange={(e)=>setEmail(e.target.value)} type='email' placeholder="email"/>
                 <input value={password} onChange={(e)=>setPassword(e.target.value)} type='password'placeholder="password"/>
