@@ -27,7 +27,6 @@ app.get("/", (req, res) => {
 
 //api
 app.use("/api/v1/user", userRoutes);
-//localhost:8080/api/v1/user/register
 
 
 app.listen(process.env.PORT, () => {
