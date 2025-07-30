@@ -1,14 +1,16 @@
-import React,{useState} from "react";
+import React,{ useState} from "react";
 import Header from "./Header";
 import './Login.css';
 import axios from "axios";
 import { API_END_POINT } from "../utils/constant";
-
+import { toast } from "react-hot-toast";
+import {useNavigate} from "react-router-dom";
 const Login = () => {
     const [isLogin,setIsLogin]=useState(true);
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [fullName,setFullName]=useState("");
+    const navigate = useNavigate();
     const logininHandler=()=>{
         setIsLogin(!isLogin);
     }
@@ -17,17 +19,35 @@ const Login = () => {
          if(isLogin){
             const user={email,password};
             try{
-                const res =await axios.post(`${API_END_POINT}/login`,user);
-                console.log(res);
+                const res =await axios.post(`${API_END_POINT}/login`,user,{
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    withCredentials: true
+                });
+                if(res.data.success){
+                    toast.success(res.data.message);
+                }
+                navigate("/browser");
             }catch(error){
+                toast.error(error.response.data.message);
                 console.log(error);
             }
          }else{
          const user={fullName,email,password};
          try{
-                const res =await axios.post(`${API_END_POINT}/register`,user);
-                console.log(res);
+                const res =await axios.post(`${API_END_POINT}/register`,user,{
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    withCredentials: true
+                });
+                if(res.data.success){
+                    toast.success(res.data.message);
+                }
+                setIsLogin(true);
          }catch(error){
+            toast.error(error.response.data.message);
             console.log(error);
          }
         }
