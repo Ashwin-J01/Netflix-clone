@@ -26,7 +26,6 @@ app.use(cors(corsOptions));
  
 // api
 app.use("/api/v1/user", userRoute);
-//localhost:8080/api/v1/user/register
 app.listen(process.env.PORT,() => {
     console.log(`Server listen at port ${process.env.PORT}`);
 });
