@@ -1,0 +1,50 @@
+.video-title {
+  position: absolute;
+  top: 18%;
+  left: 0;
+  width: 100vw;
+  padding: 3rem;
+  color: white;
+  z-index: 1; /* ⭐ BRINGS IT ABOVE THE VIDEO */
+}
+
+.video-title h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.video-title p {
+  width: 33%;
+  margin-top: 1rem;
+}
+
+.video-title-buttons {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.video-title-buttons button {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.play-button {
+  background-color: white;
+  color: black;
+}
+
+.play-button:hover {
+  opacity: 0.8;
+}
+
+.info-button {
+  margin-left: 0.5rem;
+  background-color: rgba(107, 114, 128, 0.5);
+  color: black;
+}
