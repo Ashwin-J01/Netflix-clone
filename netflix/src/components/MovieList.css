@@ -1,0 +1,42 @@
+/* MovieList.css */
+
+.movie-list {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.movie-list-title {
+  font-size: 1.875rem; /* 30px */
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.movie-list-title.black {
+  color: black;
+}
+
+/* .movie-list-title.white {
+  color: white;
+} */
+.movie-list-title{
+  color: white;
+} 
+.movie-list-container {
+  display: flex;
+  overflow-x: auto;
+  cursor: pointer;
+}
+
+.movie-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-list-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.movie-list-inner {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,7 @@
+/* MovieCard.css */
+
+.movie-card {
+  width: 12rem; /* 192px */
+  padding-right: 0.5rem;
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+/* MovieContainer.css */
+
+.movie-container {
+  background-color: black;
+}
+
+.movie-container-inner {
+  margin-top: -13rem; /* negative margin */
+  position: relative;
+  z-index: 10;
+}
