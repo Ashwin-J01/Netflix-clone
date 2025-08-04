@@ -1,7 +1,14 @@
-/* MovieCard.css */
-
 .movie-card {
   width: 12rem; /* 192px */
   padding-right: 0.5rem;
   cursor: pointer;
+  flex-shrink: 0; /* Important to prevent shrink in overflow scroll */
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem; /* optional: make them look smooth */
+  object-fit: cover;     /* ensures it fills nicely */
+  display: block;        /* removes unwanted whitespace */
 }

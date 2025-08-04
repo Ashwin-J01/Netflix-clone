@@ -1,10 +1,11 @@
 import React from 'react'
 import './MovieCard.css'
-export const MovieCard = () => {
+import { TMDB_IMG_URL } from '../utils/constant';
+export const MovieCard = ({posterPath}) => {
   return (
      <div className="movie-card" >
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvLqW9lR1u1arJdV93ECJPjmjMMKayiITNVA&s" alt="Movie Poster" />
-    </div>
-  )
+        <img src={`${TMDB_IMG_URL}/${posterPath}`} alt="Movie Poster" />
+        </div>
+  );
 }
 export default MovieCard;
