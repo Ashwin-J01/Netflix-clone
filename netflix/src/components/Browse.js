@@ -8,10 +8,12 @@ import UseNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import usePopularMovies from "../hooks/usePopularMovies";
 import UseTopRatedMovies from "../hooks/useTopRatedMovies";
 import UseUpcomingMovies from "../hooks/useUpcomingMovies";
+import SearchMovie from "./SearchMovie";
 
 const Browser = () => {
   const user= useSelector((store) => store.app.user);
   const navigate = useNavigate();
+  const toggle = useSelector((store) => store.movie.toggle);
   const dispatch = useDispatch();
   // my custom hook to fetch now playing movies
   UseNowPlayingMovies();
@@ -29,8 +31,13 @@ const Browser = () => {
     <div>
        <Header/>
        <div>
+        {
+          toggle ? <SearchMovie /> :(
+        <>
         <MainContainer/>
         <MovieContainer/>
+        </>)
+}
        </div>
     </div>
   );

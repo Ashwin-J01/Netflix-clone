@@ -1,11 +1,11 @@
 import React from "react";
 import "./VideoTitle.css"; // ✅ Link your plain CSS file
 
-const VideoTitle = () => {
+const VideoTitle = ({title,overview}) => {
   return (
     <div className="video-title">
-      <h1>Video Title Component</h1>
-      <p>Description of the video goes here.</p>
+      <h1>{title}</h1>
+      <p>{overview}</p>
       <div className="video-title-buttons">
         <button className="play-button">Play</button>
         <button className="info-button">Watch more</button>

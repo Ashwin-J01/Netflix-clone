@@ -7,9 +7,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../redux/userSlice";
 import { toast } from "react-hot-toast";
+import { setToggle } from "../redux/movieSlice";
+
 const Header = () => {
   const user = useSelector((store)=> store.app.user);
   const dispatch = useDispatch();
+  const toggle = useSelector((store=>store.movie.toggle));;
   const navigate = useNavigate();
   const logoutHandler = async()=>{
     try{
@@ -24,6 +27,9 @@ const Header = () => {
       console.log(error);
     }
   }
+  const toggleHandler = () => {
+      dispatch(setToggle());
+  }
   return (
     <div className="header">
         <img className='' src={image} alt="logo"/>
@@ -33,7 +39,7 @@ const Header = () => {
             <h1>{user.fullName}</h1>
             <div className="header-buttons">
             <button onClick={logoutHandler}>logout</button>
-            <button>search</button>
+            <button onClick={toggleHandler}>{toggle?"Home":"search"}</button>
             </div>
         </div>)
   }
