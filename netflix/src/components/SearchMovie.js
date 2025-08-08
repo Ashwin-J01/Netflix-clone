@@ -5,17 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchMovieDetails } from '../redux/searchSlice';
 import { setLoading } from '../redux/userSlice';
 import MovieList from './MovieList';
-import './SearchMovie.css';
+import './SearchMovie.css'; // ✅ new CSS file
 
 const SearchMovie = () => {
     const [searchMovie, setSearchMovie] = useState("");
     const dispatch = useDispatch();
     const isLoading = useSelector(store => store.app.isLoading);
-    const { movieName, searchedMovie } = useSelector(
-  store => store.searchMovie || {}
-);
-
-
+    const { movieName, searchedMovie } = useSelector(store => store.searchMovie);
+    
     const submitHandler = async (e) => {
         e.preventDefault();
         dispatch(setLoading(true));
@@ -33,31 +30,29 @@ const SearchMovie = () => {
 
     return (
         <>
-            <div className="search-container">
-                <form onSubmit={submitHandler} className="search-form">
-                    <div className="search-box">
-                        <input
-                            value={searchMovie}
-                            onChange={(e) => setSearchMovie(e.target.value)}
-                            type="text"
-                            placeholder="Search Movies..."
+            <div className='search-container'>
+                <form onSubmit={submitHandler} className='search-form'>
+                    <div className='search-input-container'>
+                        <input 
+                            value={searchMovie} 
+                            onChange={(e) => { setSearchMovie(e.target.value) }} 
+                            className='search-input' 
+                            type="text" 
+                            placeholder='Search Movies...' 
                         />
-                        <button type="submit">
-                            {isLoading ? "Loading..." : "Search"}
+                        <button className='search-button'>
+                            {isLoading ? "loading..." : "Search"}
                         </button>
                     </div>
                 </form>
             </div>
-
-            {searchedMovie ? (
-                <MovieList title={movieName} searchMovie={true} movies={searchedMovie} />
-            ) : (
-                <h1 style={{ textAlign: "center", marginTop: "2rem", color: "#444" }}>
-                    Movie Not Found!!
-                </h1>
-            )}
+            {
+                searchedMovie 
+                ? (<MovieList title={movieName} searchMovie={true} movies={searchedMovie}/>) 
+                : (<h1>Movie Not Found!!</h1>)
+            }
         </>
-    );
-};
+    )
+}
 
 export default SearchMovie;

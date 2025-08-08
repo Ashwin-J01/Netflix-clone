@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 
 import './MovieList.css'
 
-const MovieList = ({title,movies}) => {
+const MovieList = ({title,movies,searchMovie=false}) => {
 if (!movies || !Array.isArray(movies) || movies.length === 0) return null;
 console.log(movies);
     return (

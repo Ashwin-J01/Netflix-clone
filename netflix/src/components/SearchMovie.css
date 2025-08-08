@@ -1,48 +1,41 @@
-/* SearchMovie.css */
-
 .search-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    width: 100%;
 }
 
 .search-form {
-  width: 50%;
+    width: 50%;
 }
 
-.search-box {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.5rem;
-  border: 2px solid #e5e7eb; /* Tailwind's border-gray-200 */
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  background-color: #fff;
+.search-input-container {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    border: 2px solid #e5e7eb; /* gray-200 */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
 }
 
-.search-box input {
-  width: 100%;
-  outline: none;
-  font-size: 1.125rem; /* text-lg */
-  padding: 0.5rem;
-  border: none;
-  border-radius: 0.375rem;
+.search-input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1.125rem; /* text-lg */
 }
 
-.search-box button {
-  background-color: #991b1b; /* bg-red-800 */
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  margin-left: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+.search-button {
+    background-color: #7f1d1d; /* red-800 */
+    color: white;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
 }
 
-.search-box button:hover {
-  background-color: #7f1d1d;
+.search-button:hover {
+    background-color: #991b1b; /* darker hover red */
 }
