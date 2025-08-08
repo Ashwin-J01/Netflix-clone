@@ -1,17 +1,22 @@
 import React from 'react';
 import './VideoBackGround.css';
+import useMovieById from '../hooks/useMovieById';
+import { useSelector } from 'react-redux';
 
-const VideoBackground = (bool) => {
+const VideoBackground = ({movieId,bool}) => {
+    const trailerMovie = useSelector(store=>store.movie.trailerMovie);
+    
+    useMovieById(movieId);
 
   return (
     <div className="video-background">
-      <iframe 
-       className={bool ? "full" : "screen"}
-    src="https://www.youtube.com/embed/nb_fFj_0rq8?si=3x0-d5ZbzDLWrERG&autoplay=1&mute=1" 
-      title="YouTube video player" 
-      frameborder="0"
-       allowFullScreen>
-       </iframe>
+      <iframe
+        className={true ? "full" : "screen"}
+        src={`https://www.youtube.com/embed/${trailerMovie?.key}?si=HorxQfzFY2_TAO1W&autoplay=1&mute=1`}
+        title="YouTube video player"
+        frameBorder="0"
+        allowFullScreen>
+      </iframe>
     </div>
   );
 };
