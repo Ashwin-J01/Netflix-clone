@@ -12,7 +12,7 @@ console.log(movies);
             <div className="movie-list-container">
                 <div className="movie-list-inner">
                     {
-                        movies.map((movie) => {
+                        movies?.map((movie) => {
                             return (
                                 <MovieCard key={movie.id} posterPath={movie.poster_path}/>
                             );

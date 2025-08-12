@@ -5,7 +5,7 @@ import { getTrailerMovies } from '../redux/movieSlice';
 import { useEffect } from "react";
 
 
-const useMovieById = async (movieId) => {
+const  useMovieById = async (movieId) => {
   const dispatch = useDispatch();
   
   useEffect(() => {
