@@ -1,34 +1,42 @@
 /* Header.css */
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 20%, transparent 100%);
+  padding: 1.5rem 3rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+  
 }
 
 .header img {
-  height: 50px;
+  height: 47px;
   width: auto;
-  margin-left: 30px;
+  margin-left: 0;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.header img:hover {
+  transform: scale(1.05);
 }
 
 .header-user {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  text-transform: uppercase;
+  gap: 1.5rem;
   color: #fff;
 }
 
 .header-user h1 {
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .header-buttons {
@@ -37,16 +45,63 @@
 }
 
 .header-buttons button {
-  background-color: #e50914; /* Netflix red */
+  background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.5rem;
   color: #fff;
-  font-weight: 500;
-  border-radius: 4px;
+  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
 }
 
 .header-buttons button:hover {
-  background-color: #f40612;
+  background: linear-gradient(135deg, #b20710 0%, #8a0508 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .header img {
+    height: 45px;
+  }
+  
+  .header-user h1 {
+    font-size: 1rem;
+  }
+  
+  .header-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.8rem 1rem;
+  }
+  
+  .header img {
+    height: 40px;
+  }
+  
+  .header-user {
+    gap: 1rem;
+  }
+  
+  .header-buttons {
+    gap: 0.5rem;
+  }
+  
+  .header-buttons button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }

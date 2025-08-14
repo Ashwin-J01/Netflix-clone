@@ -49,7 +49,8 @@ const SearchMovie = () => {
             {
                 searchedMovie 
                 ? (<MovieList title={movieName} searchMovie={true} movies={searchedMovie}/>) 
-                : (<h1>Movie Not Found!!</h1>)
+                : (<h1 className="movie-not-found">Movie Not Found!!</h1>
+)
             }
         </>
     )

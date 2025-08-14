@@ -1,11 +1,10 @@
 import axios from "axios";
 import { options } from '../utils/constant';
 import { useDispatch } from "react-redux";
-import { getTrailerMovies } from '../redux/movieSlice';
+import { getBackgroundTrailerMovies } from '../redux/movieSlice';
 import { useEffect } from "react";
 
-
-const useMovieById = (movieId) => {
+const useBackgroundMovieById = (movieId) => {
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -15,11 +14,11 @@ const useMovieById = (movieId) => {
       try {
         const res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos`, options);
 
-        console.log('Dialog video:', res.data.results);
+        console.log('Background video:', res.data.results);
         const trailer = res?.data?.results?.filter((item) => {
           return item.type === "Trailer";
         })
-        dispatch(getTrailerMovies(trailer.length > 0 ? trailer[0] : res.data.results[0]));
+        dispatch(getBackgroundTrailerMovies(trailer.length > 0 ? trailer[0] : res.data.results[0]));
       } catch (error) {
         console.log(error);
       }
@@ -29,4 +28,4 @@ const useMovieById = (movieId) => {
 
 }
 
-export default useMovieById;
+export default useBackgroundMovieById;

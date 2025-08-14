@@ -9,8 +9,10 @@ const movieSlice = createSlice({
     upcomingMovie: null,
     toggle: false,
     trailerMovie: null,
+    backgroundTrailerMovie: null,
     open:false,
     id:"",
+    isFullScreen: false,
   },
   reducers: {
     getNowPlayingMovies: (state, action) => {
@@ -31,11 +33,17 @@ const movieSlice = createSlice({
     getTrailerMovies: (state, action) => {
       state.trailerMovie = action.payload;
     },
+    getBackgroundTrailerMovies: (state, action) => {
+      state.backgroundTrailerMovie = action.payload;
+    },
     setOpen:(state,action)=>{
             state.open = action.payload;
         },
         getId:(state,action)=>{
             state.id = action.payload;
+        },
+        setFullScreen:(state,action)=>{
+            state.isFullScreen = action.payload;
         }
   }
 });
@@ -47,8 +55,11 @@ export const {
   getUpcomingMovie,
   setToggle,
   getTrailerMovies,
+  getBackgroundTrailerMovies,
   setOpen, // ✅ now matches reducer
-  getId
+  getId,
+  setFullScreen,
+  
 } = movieSlice.actions;
 
 export default movieSlice.reducer;

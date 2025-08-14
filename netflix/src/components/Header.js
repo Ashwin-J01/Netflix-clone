@@ -38,8 +38,9 @@ const Header = () => {
         <div className="header-user">
             <h1>{user.fullName}</h1>
             <div className="header-buttons">
-            <button onClick={logoutHandler}>logout</button>
             <button onClick={toggleHandler}>{toggle?"Home":"search"}</button>
+            <button onClick={logoutHandler}>logout</button>
+            
             </div>
         </div>)
   }
