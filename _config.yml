@@ -1,0 +1,17 @@
+title: "Netflix Clone"
+description: "My Netflix Clone project hosted on GitHub Pages"
+repository: Ashwin-J01/netflix-clone
+
+# URL settings
+url: "https://ashwin-j01.github.io"   # your GitHub Pages domain
+baseurl: "/netflix-clone"             # repo name
+
+# Theme
+theme: jekyll-theme-primer
+
+# Plugins used by GitHub Pages
+plugins:
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-relative-links
