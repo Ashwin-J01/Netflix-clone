@@ -56,6 +56,5 @@
     "postcss": "^8.5.6",
     "sass": "^1.52.2",
     "tailwindcss": "^4.1.11"
-  },
-  "homepage": "https://ashwin-j01.github.io/netflix-clone"
+  }
 }
