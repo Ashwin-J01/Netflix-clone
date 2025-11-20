@@ -34,7 +34,11 @@ export const Login = async(req,res)=>{
         const token = await jwt.sign(tokenData, "dfbvdkjzfnvkjzdnfvkzdnjf",{expiresIn:"1h"});
 
         const { password: _pw, ...safeUser } = user.toObject();
-        return res.status(200).cookie("token", token, { httpOnly: true }).json({
+        return res.status(200)..cookie("token", token, {
+  httpOnly: true,
+  secure: true,        // required on https
+  sameSite: "none",    // required for cross-domain
+}).json({
             message:`Welcome back ${user.fullName}`,
             user: safeUser,
             success:true
@@ -46,7 +50,13 @@ export const Login = async(req,res)=>{
 }
 
 export const Logout = async (req,res) => {
-    return res.status(200).cookie("token", "", {expiresIn:new Date(Date.now()), httpOnly:true}).json({
+    return res.status(200)..cookie("token", "", {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  expires: new Date(0)
+})
+.json({
         message:"User logged out successfully.",
         success:true,
     });
