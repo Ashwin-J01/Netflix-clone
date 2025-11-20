@@ -3,6 +3,7 @@ import Header from "./Header";
 import './Login.css';
 import axios from "axios";
 import { API_END_POINT } from "../utils/constant";
+import { loginUser } from "../services/auth";
 import { toast } from "react-hot-toast";
 import {useNavigate} from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
@@ -25,10 +26,9 @@ const Login = () => {
          if(isLogin){
             const user={email,password};
             try{
-                const res =await axios.post(`${API_END_POINT}/login`,user,{
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+                // use the central auth service which accepts an optional config
+                const res = await loginUser(user.email, user.password, {
+                    headers: { "Content-Type": "application/json" },
                     withCredentials: true
                 });
                 if(res.data.success){
