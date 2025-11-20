@@ -2,7 +2,10 @@
 // Central place for client-side constants.
 // Read API base URL from environment variable `REACT_APP_API_URL`.
 // Create React App requires env vars to be prefixed with REACT_APP_.
-const API_END_POINT = (process.env.REACT_APP_API_URL + "/api/v1") || "http://localhost:8080/api/v1";
+// Expect `REACT_APP_API_URL` to be the full backend base (including any prefix like `/api/v1/user`).
+// Example (recommended): REACT_APP_API_URL=https://backend-jl17.onrender.com/api/v1/user
+// Fallback for local development points to the local backend route that mounts user routes.
+const API_END_POINT = process.env.REACT_APP_API_URL || "http://localhost:8080/api/v1/user";
 
 export const options = {
     method: 'GET',
