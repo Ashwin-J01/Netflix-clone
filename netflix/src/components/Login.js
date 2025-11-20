@@ -31,14 +31,15 @@ const Login = () => {
                     headers: { "Content-Type": "application/json" },
                     withCredentials: true
                 });
-                if(res.data.success){
+                if (res?.data?.success) {
                     toast.success(res.data.message);
-                }  
-                dispatch(setUser(res.data.user));
+                }
+                dispatch(setUser(res?.data?.user));
                 navigate("/browser");
             }catch(error){
-                toast.error(error.response.data.message);
-                console.log(error);
+                const msg = error?.response?.data?.message || error?.message || "Login failed";
+                toast.error(msg);
+                console.error(error);
             } finally{
                 dispatch(setLoading(false));
             }
@@ -46,19 +47,20 @@ const Login = () => {
             dispatch(setLoading(true));
          const user={fullName,email,password};
          try{
-                const res =await axios.post(`${API_END_POINT}/register`,user,{
+                const res = await axios.post(`${API_END_POINT}/register`, user, {
                     headers: {
                         "Content-Type": "application/json"
                     },
                     withCredentials: true
                 });
-                if(res.data.success){
+                if (res?.data?.success) {
                     toast.success(res.data.message);
                 }
                 setIsLogin(true);
          }catch(error){
-            toast.error(error.response.data.message);
-            console.log(error);
+            const msg = error?.response?.data?.message || error?.message || "Registration failed";
+            toast.error(msg);
+            console.error(error);
          } finally{
             dispatch(setLoading(false));
         }
