@@ -19,13 +19,24 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cookieParser());
 
-// CORS: allow only the production frontend origin (or set via CLIENT_URL env)
-const clientOrigin = process.env.CLIENT_URL || "https://netflix-clone-gamma-orcin-58.vercel.app";
+// Strict CORS required by client: allow only the deployed frontend origin
 app.use(cors({
-    origin: clientOrigin,
+    origin: "https://netflix-clone-gamma-orcin-58.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
+
+// Ensure Access-Control-Allow-Credentials header is present
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
+});
+
+// Allow standard headers including Authorization (for JWT) on preflight
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
  
 // api
 app.use("/api/v1/user", userRoute);
