@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 
 import './MovieList.css'
 
-const MovieList = ({title,movies,searchMovie=false}) => {
+const MovieList = ({title,movies,searchMovie=false, isNowPlaying=false}) => {
 if (!movies || !Array.isArray(movies) || movies.length === 0) return null;
 console.log(movies);
     return (
@@ -14,7 +14,7 @@ console.log(movies);
                     {
                         movies?.map((movie) => {
                             return (
-                                <MovieCard key={movie.id} posterPath={movie.poster_path} movieId={movie.id}/>
+                                <MovieCard key={movie.id} posterPath={movie.poster_path} movieId={movie.id} isNowPlaying={isNowPlaying}/>
                             );
                         })
                     }

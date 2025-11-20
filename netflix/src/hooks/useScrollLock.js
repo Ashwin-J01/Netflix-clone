@@ -14,7 +14,7 @@ const useScrollLock = (isLocked) => {
     }
 
     return () => {
-      // Cleanup: restore original style when component unmounts
+      
       document.body.style.overflow = originalStyle.current;
     };
   }, [isLocked]);

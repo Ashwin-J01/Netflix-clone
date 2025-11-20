@@ -56,7 +56,7 @@ export const {
   setToggle,
   getTrailerMovies,
   getBackgroundTrailerMovies,
-  setOpen, // ✅ now matches reducer
+  setOpen, 
   getId,
   setFullScreen,
   

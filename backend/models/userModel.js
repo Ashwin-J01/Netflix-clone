@@ -12,6 +12,15 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         require:true
+    },
+    isSubscribed:{
+        type:Boolean,
+        default:false
+    },
+    subscriptionTier:{
+        type:String,
+        enum:['none','basic','standard','premium'],
+        default:'none'
     }
 },{timestamps:true});
 

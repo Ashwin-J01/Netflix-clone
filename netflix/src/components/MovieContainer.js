@@ -12,7 +12,7 @@ const MovieContainer = () => {
     <div className="movie-container">
       <div className="movie-container-inner">
 <MovieList title={"Popular Movies"} movies={movie.popularMovie} />
-<MovieList title={"Now Playing Movies"} movies={movie.nowPlayingMovie} /> 
+<MovieList title={"Now Playing Movies"} movies={movie.nowPlayingMovie} isNowPlaying={true} /> 
 <MovieList title={"Top Rated Movies"} movies={movie.topRatedMovie} /> 
 <MovieList title={"Upcoming Movies"} movies={movie.upcomingMovie} /> 
 
