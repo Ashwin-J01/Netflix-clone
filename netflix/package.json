@@ -28,10 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-
-    "postbuild": "cp build/index.html build/404.html || copy build\\index.html build\\404.html",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -t true"
+    "postinstall": "node fixScripts.js",
+    "postbuild": "cp build/index.html build/404.html || copy build\\index.html build\\404.html"
   },
   "eslintConfig": {
     "extends": [
@@ -53,10 +51,10 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
-    "ajv": "^7.2.4",
     "autoprefixer": "^10.4.21",
     "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
+    "sass": "^1.52.2",
     "tailwindcss": "^4.1.11"
   },
   "homepage": "https://ashwin-j01.github.io/netflix-clone"
