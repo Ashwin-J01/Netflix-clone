@@ -18,30 +18,14 @@ const app = express();
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cookieParser());
-// Allow origin(s) from env. Provide a comma-separated `CLIENT_URL` env var
-// e.g. CLIENT_URL=https://your-frontend.onrender.com,https://yourusername.github.io
-const rawClientUrls = process.env.CLIENT_URL || '';
-const allowedOrigins = rawClientUrls
-    ? rawClientUrls.split(',').map(s => s.trim()).filter(Boolean)
-    : [
-            'http://localhost:3000',
-            'https://ashwin-j01.github.io',
-            'https://yourusername.github.io'
-        ];
 
-const corsOptions = {
-    origin: (origin, callback) => {
-        // allow requests with no origin (e.g., mobile apps, curl, server-to-server)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            return callback(null, true);
-        }
-        return callback(new Error('CORS policy: This origin is not allowed: ' + origin));
-    },
+// CORS: allow only the production frontend origin (or set via CLIENT_URL env)
+const clientOrigin = process.env.CLIENT_URL || "https://netflix-clone-gamma-orcin-58.vercel.app";
+app.use(cors({
+    origin: clientOrigin,
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
-};
-
-app.use(cors(corsOptions));
+}));
  
 // api
 app.use("/api/v1/user", userRoute);

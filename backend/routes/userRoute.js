@@ -3,6 +3,8 @@ import { Login, Logout, Register } from "../controllers/user.js";
 import jwt from "jsonwebtoken";
 import { User } from "../models/userModel.js";
 
+const JWT_SECRET = process.env.JWT_SECRET || "dfbvdkjzfnvkjzdnfvkzdnjf";
+
 const router = express.Router();
 
 router.route("/register").post(Register);
@@ -16,7 +18,7 @@ const auth = async (req, res, next) => {
     if (!token) {
       return res.status(401).json({ message: "Unauthorized", success: false });
     }
-    const decoded = jwt.verify(token, "dfbvdkjzfnvkjzdnfvkzdnjf");
+    const decoded = jwt.verify(token, JWT_SECRET);
     req.user = decoded;
     next();
   } catch (err) {
@@ -48,12 +50,12 @@ router.post("/subscribe", auth, async (req, res) => {
       isSubscribed: updated.isSubscribed,
       subscriptionTier: updated.subscriptionTier,
     };
-    const token = await jwt.sign(tokenData, "dfbvdkjzfnvkjzdnfvkzdnjf", { expiresIn: "1h" });
+    const token = await jwt.sign(tokenData, JWT_SECRET, { expiresIn: "1h" });
     const { password: _pw, ...safeUser } = updated.toObject();
 
     return res
       .status(200)
-      .cookie("token", token, { httpOnly: true })
+      .cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) })
       .json({ success: true, user: safeUser });
   } catch (err) {
     return res.status(500).json({ message: "Server error", success: false });
