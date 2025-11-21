@@ -86,6 +86,10 @@ const Login = () => {
   {isLoading ? "Loading..." : (isLogin ? "Login" : "Sign up")}
 </button>
                 <p>{isLogin?  "New to Netflix?":"Already have an account?"}<span onClick={logininHandler}>{isLogin? "Signin":"Login"}</span></p>
+                <div className="debug-link" style={{marginTop:12,fontSize:12}}>
+                    <span style={{color:'#666'}}>Debug backend endpoint: </span>
+                    <a href={`${API_END_POINT}/login`} target="_blank" rel="noreferrer">{`${API_END_POINT}/login`}</a>
+                </div>
             </div>
         </form>
 	</div>
