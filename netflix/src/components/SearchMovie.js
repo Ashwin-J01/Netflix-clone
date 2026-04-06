@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchMovieDetails } from '../redux/searchSlice';
 import { setLoading } from '../redux/userSlice';
 import MovieList from './MovieList';
-import './SearchMovie.css'; // ✅ new CSS file
+import './SearchMovie.css';
 
 const SearchMovie = () => {
     const [searchMovie, setSearchMovie] = useState("");
@@ -21,7 +21,6 @@ const SearchMovie = () => {
             const movies = res?.data?.results;
             dispatch(setSearchMovieDetails({ searchMovie, movies }));
         } catch (error) {
-            console.log(error);
         } finally {
             dispatch(setLoading(false));
         }

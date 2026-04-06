@@ -9,7 +9,6 @@ const userSlice = createSlice({
         subscriptionTier:'none'
     },
     reducers:{
-        // actions
         setUser:(state,action)=>{
             state.user = action.payload;
             state.isSubscribed = !!action.payload?.isSubscribed;

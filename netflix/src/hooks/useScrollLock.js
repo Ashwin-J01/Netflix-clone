@@ -5,11 +5,9 @@ const useScrollLock = (isLocked) => {
 
   useEffect(() => {
     if (isLocked) {
-      // Store the original overflow style
       originalStyle.current = window.getComputedStyle(document.body).overflow;
       document.body.style.overflow = 'hidden';
     } else {
-      // Restore the original overflow style
       document.body.style.overflow = originalStyle.current;
     }
 

@@ -9,7 +9,7 @@ const MovieCard = ({ posterPath,movieId, isNowPlaying=false }) => {
   const { isSubscribed } = useSelector(store => store.app);
   const [showPaywall, setShowPaywall] = React.useState(false);
   const nowPlayingIds = useSelector(store => store.movie.nowPlayingMovie)?.map(m => m.id) || [];
-  if(posterPath=== null) return null; // Handle case where posterPath is null
+  if(posterPath=== null) return null;
   
 
   const handleOpen = () => {

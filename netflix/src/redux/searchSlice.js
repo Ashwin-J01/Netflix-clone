@@ -7,7 +7,6 @@ const searchSlice = createSlice({
         searchedMovie:null
     },
     reducers:{
-        // actions
         setSearchMovieDetails:(state,action)=>{
             const {searchMovie, movies} = action.payload;
             state.movieName = searchMovie;

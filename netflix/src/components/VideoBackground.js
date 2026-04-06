@@ -10,7 +10,6 @@ const VideoBackground = ({movieId}) => {
     const isFullScreen = useSelector(store=>store.movie.isFullScreen);
     const dispatch = useDispatch();
     
-    // Only call the dialog hook since this is only for dialog videos
     useMovieById(movieId);
 
     const handleFullScreenToggle = () => {
@@ -30,12 +29,6 @@ const VideoBackground = ({movieId}) => {
         }
     }, [isFullScreen]);
 
-    // Debug logging
-    console.log('VideoBackground (Dialog) render:', {
-      movieId,
-      trailerMovie: trailerMovie?.key
-    });
-    
     if (!trailerMovie?.key) {
         return (
             <div className="video-background">
@@ -50,7 +43,7 @@ const VideoBackground = ({movieId}) => {
         <div className={`video-background dialog-video ${isFullScreen ? 'fullscreen' : ''}`}>
             <iframe
                 className="video-iframe"
-                key={trailerMovie?.key || movieId} // Add key to force re-render when movie changes
+                key={trailerMovie?.key || movieId}
                 src={`https://www.youtube.com/embed/${trailerMovie.key}?autoplay=1&mute=1&enablejsapi=1&controls=1&rel=0`}
                 title="YouTube video player"
                 frameBorder="0"

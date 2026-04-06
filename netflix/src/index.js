@@ -6,7 +6,6 @@ import {Provider} from 'react-redux';
 import store from './redux/store';
 import axios from 'axios';
 
-// Ensure axios sends cookies for cross-site requests (frontend -> backend)
 axios.defaults.withCredentials = true;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

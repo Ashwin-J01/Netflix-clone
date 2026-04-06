@@ -15,7 +15,6 @@ const Browser = () => {
   const navigate = useNavigate();
   const toggle = useSelector((store) => store.movie.toggle);
   const dispatch = useDispatch();
-  // my custom hook to fetch now playing movies
   UseNowPlayingMovies();
   usePopularMovies();
   UseTopRatedMovies();

@@ -5,7 +5,6 @@ import './MovieList.css'
 
 const MovieList = ({title,movies,searchMovie=false, isNowPlaying=false}) => {
 if (!movies || !Array.isArray(movies) || movies.length === 0) return null;
-console.log(movies);
     return (
         <div className="movie-list">
              <h1 className="movie-list-title">{title}</h1>

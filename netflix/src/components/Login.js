@@ -26,7 +26,6 @@ const Login = () => {
          if(isLogin){
             const user={email,password};
             try{
-                // use the central auth service which accepts an optional config
                 const res = await loginUser(user.email, user.password, {
                     headers: { "Content-Type": "application/json" },
                     withCredentials: true
@@ -39,7 +38,6 @@ const Login = () => {
             }catch(error){
                 const msg = error?.response?.data?.message || error?.message || "Login failed";
                 toast.error(msg);
-                console.error(error);
             } finally{
                 dispatch(setLoading(false));
             }
@@ -60,7 +58,6 @@ const Login = () => {
          }catch(error){
             const msg = error?.response?.data?.message || error?.message || "Registration failed";
             toast.error(msg);
-            console.error(error);
          } finally{
             dispatch(setLoading(false));
         }

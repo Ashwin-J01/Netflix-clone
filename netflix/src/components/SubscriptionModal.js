@@ -29,9 +29,9 @@ const plans = [
 
 const SubscriptionModal = ({ open, onClose, onSuccess }) => {
   const dispatch = useDispatch();
-  const [step, setStep] = React.useState('plans'); // 'plans' | 'method' | 'payment'
+  const [step, setStep] = React.useState('plans');
   const [selectedTier, setSelectedTier] = React.useState('');
-  const [selectedMethod, setSelectedMethod] = React.useState(''); // 'card' | 'gift'
+  const [selectedMethod, setSelectedMethod] = React.useState('');
   const [cardNumber, setCardNumber] = React.useState('');
   const [expiry, setExpiry] = React.useState('');
   const [cvv, setCvv] = React.useState('');
@@ -84,7 +84,7 @@ const SubscriptionModal = ({ open, onClose, onSuccess }) => {
 
   const canPay = !!firstName && !!lastName && !!cardNumber && !!expiry && !!cvv && !processing;
 
-  const stepIndex = step === 'plans' ? 1 : step === 'method' ? 2 : 3; // processing is transient
+  const stepIndex = step === 'plans' ? 1 : step === 'method' ? 2 : 3;
 
   return (
     <Dialog 

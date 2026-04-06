@@ -1,4 +1,3 @@
-// User controllers: Login, Register, Logout
 import { User } from "../models/userModel.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -9,7 +8,7 @@ const cookieOptions = () => ({
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
   sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-  expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
+  expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
 });
 
 export const Login = async (req, res) => {
@@ -44,7 +43,6 @@ export const Login = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.error(error);
     return res.status(500).json({ message: "Server error", success: false });
   }
 };
@@ -98,7 +96,6 @@ export const Register = async (req, res) => {
       user: safeUser,
     });
   } catch (error) {
-    console.error(error);
     return res.status(500).json({ message: "Server error", success: false });
   }
 };

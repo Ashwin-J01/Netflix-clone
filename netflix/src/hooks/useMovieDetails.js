@@ -25,7 +25,6 @@ const useMovieDetails = (movieId) => {
         setRelatedMovies(relatedRes.data.results.slice(0, 6));
       } catch (err) {
         setError('Failed to load movie details');
-        console.error('Error fetching movie details:', err);
       } finally {
         setLoading(false);
       }

@@ -6,10 +6,8 @@ import './MainContainer.css';
 const MainContainer = () => {
     const movie = useSelector((store) => store.movie?.nowPlayingMovie); 
     if(!movie) return;
-    console.log(movie); 
-    
-    // Use a stable background video - only change on page refresh
-    const backgroundIndex = 4; // You can change this to any number between 0-9
+
+    const backgroundIndex = 4;
     const{overview,id,title}= movie[backgroundIndex];   
     
     return (

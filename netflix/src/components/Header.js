@@ -1,7 +1,7 @@
 import React from "react";
 import './Header.css';
 import { useSelector,useDispatch } from "react-redux";
-import image from "../logo.png"; // Assuming the logo is in the same directory
+import image from "../logo.png";
 import { API_END_POINT } from "../utils/constant";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,6 @@ const Header = () => {
        navigate("/");
     }
     catch(error){
-      console.log(error);
     }
   }
   const toggleHandler = () => {

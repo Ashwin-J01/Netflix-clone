@@ -16,7 +16,6 @@ export default function MovieDialog() {
   const { open, id, isFullScreen } = useSelector(store => store.movie);
   const dispatch = useDispatch();
 
-  // Set full screen to true when dialog opens
   React.useEffect(() => {
     if (open && !isFullScreen) {
       dispatch(setFullScreen(true));
@@ -25,7 +24,6 @@ export default function MovieDialog() {
 
   const handleClose = () => {
     dispatch(setOpen(false));
-    // Reset full screen when closing dialog
     if (isFullScreen) {
       dispatch(setFullScreen(false));
     }
@@ -35,7 +33,6 @@ export default function MovieDialog() {
     dispatch(setFullScreen(!isFullScreen));
   };
 
-  // Handle escape key to close dialog
   React.useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.key === 'Escape' && open) {
@@ -49,7 +46,6 @@ export default function MovieDialog() {
     }
   }, [open]);
 
-  // Use custom scroll lock hook
   useScrollLock(open);
  
   return (

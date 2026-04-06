@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 const BackgroundVideo = ({movieId}) => {
     const backgroundTrailerMovie = useSelector(store=>store.movie.backgroundTrailerMovie);
     
-    // Only call the background hook
     useBackgroundMovieById(movieId);
     
     if (!backgroundTrailerMovie?.key) {

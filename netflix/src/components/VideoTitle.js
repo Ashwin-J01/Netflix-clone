@@ -1,5 +1,5 @@
 import React from "react";
-import "./VideoTitle.css"; // ✅ Link your plain CSS file
+import "./VideoTitle.css";
 
 const VideoTitle = ({title,overview}) => {
   return (

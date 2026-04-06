@@ -6,7 +6,7 @@ import './MovieContainer.css'
 const MovieContainer = () => {
   const movie = useSelector(store => store.movie)
 
-  if (!movie) return null; // OR return a loader like <div>Loading...</div>
+  if (!movie) return null;
 
   return (
     <div className="movie-container">

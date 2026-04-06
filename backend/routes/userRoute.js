@@ -11,7 +11,6 @@ router.route("/register").post(Register);
 router.route("/login").post(Login);
 router.route("/logout").get(Logout);
 
-// simple auth middleware using cookie token
 const auth = async (req, res, next) => {
   try {
     const token = req.cookies?.token;
@@ -26,7 +25,6 @@ const auth = async (req, res, next) => {
   }
 };
 
-// POST /api/v1/user/subscribe
 router.post("/subscribe", auth, async (req, res) => {
   try {
     const { tier } = req.body;

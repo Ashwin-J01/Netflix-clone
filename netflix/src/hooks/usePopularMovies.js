@@ -9,7 +9,6 @@ const usePopularMovies = async() => {
         dispatch(getPopularMovies(res.data.results));
         return res.data.results;
     }catch(error){
-        console.log(error);
     }
 };
 export default usePopularMovies;
