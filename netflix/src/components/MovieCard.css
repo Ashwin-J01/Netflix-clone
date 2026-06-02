@@ -58,7 +58,6 @@
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .movie-card {
     width: 12rem;

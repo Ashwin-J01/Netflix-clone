@@ -1,5 +1,3 @@
-/* MovieContainer.css */
-
 .movie-container {
   background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 20%, #000 40%);
   position: relative;
@@ -14,7 +12,6 @@
   padding: 0 2rem;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .movie-container-inner {
     margin-top: -4rem;
@@ -29,7 +26,6 @@
     padding: 0 0.5rem;
   }
 }
-/* MovieContainer.css */
 
 .movie-container {
   background-color: black;
